@@ -40,7 +40,7 @@ class NeuralNetwork(object):
         last_layer = len(self.layers) - 1
         input = self.layers[last_layer].inputs.copy()
         for j in range(self.layers[last_layer].layer_size):
-            epsilon = output[j] - self.output[j]
+            epsilon = -output[j] + self.output[j]
             self.layers[last_layer].neurons[j].delta = epsilon * self.layers[last_layer].neurons[j].sigma_derivative(
                 input)
         self.layers[last_layer].update_weights(input)

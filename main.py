@@ -28,7 +28,7 @@ arm_length = 150
 ex = Examples(Point(0, size[1] / 2), arm_length)
 training = ex.generate(1000)
 point = Point(0, 0)
-nn = NeuralNetwork([2, 10, 10, 2], 100, 0.001)
+nn = NeuralNetwork([2, 10, 10, 2], 100, 0.01)
 nn.train(preprocess(training[0], min(training[0]), max(training[0])), preprocess(training[1], min(training[1]), max(training[1])))
 for e in nn.errors:
     print(e)
@@ -43,7 +43,7 @@ while True:
             pos = py.mouse.get_pos()
             point = Point(pos[0], pos[1])
             out = nn.forward(preprocess([point.x, point.y], 0, size[1]))
-            out = postprocess(out, min(out), max(out))
+            #out = postprocess(out, min(out), max(out))
             print(out)
     point.draw(window)
     py.draw.circle(window, "green", (0, size[1] / 2), 8)
