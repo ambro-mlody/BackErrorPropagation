@@ -8,3 +8,6 @@ class Point(object):
 
     def draw(self, window):
         py.draw.circle(window, "red", (self.x, self.y), 4)
+
+    def tup(self):
+        return self.x, self.y
