@@ -26,5 +26,6 @@ class Neuron(object):
 
     def update_weights(self, x):
         for i in range(1, len(self.weights)):
+            #print("W:", self.weights, "e:", self.eta, "d:", self.delta, "x", x)
             self.weights[i] -= self.eta * self.delta[i - 1] * x[i - 1]
         self.weights[0] -= self.eta * self.delta[0]
